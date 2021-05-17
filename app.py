@@ -4,6 +4,7 @@ from tensorflow.keras.applications import MobileNet
 # from keras.applications import ResNet50
 from tensorflow.keras.preprocessing.image import img_to_array
 from tensorflow.keras.applications import imagenet_utils
+from tensorflow.keras.applications.mobilenet import decode_predictions
 from PIL import Image
 import numpy as np
 import flask
@@ -57,7 +58,8 @@ def predict():
             # classify the input image and then initialize the list
             # of predictions to return to the client
             preds = model.predict(image)
-            results = imagenet_utils.decode_predictions(preds)
+#             results = imagenet_utils.decode_predictions(preds)
+            results = decode_predictions(preds)
             data["predictions"] = []
 
             # loop over the results and add them to the list of
