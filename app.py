@@ -8,6 +8,7 @@ from PIL import Image
 import numpy as np
 import flask
 import io
+import os
 
 def load_model():
     # load the pre-trained Keras model (here we are using a model
@@ -77,4 +78,8 @@ if __name__ == "__main__":
     load_model()
     
 #     https://stackoverflow.com/questions/36683571/web-process-failed-to-bind-to-port-within-60-seconds-of-launch/36783563
-    app.run(host='0.0.0.0')
+# https://blog.heroku.com/python_and_django
+#     app.run(host='0.0.0.0')
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
+    
