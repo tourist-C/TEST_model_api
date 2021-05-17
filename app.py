@@ -75,4 +75,6 @@ if __name__ == "__main__":
     print(("* Loading Keras model and Flask starting server..."
         "please wait until server has fully started"))
     load_model()
-    app.run()
+    
+#     https://stackoverflow.com/questions/36683571/web-process-failed-to-bind-to-port-within-60-seconds-of-launch/36783563
+    app.run(host='0.0.0.0')
